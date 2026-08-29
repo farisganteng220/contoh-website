@@ -1,0 +1,260 @@
+/* ==========================================================================
+   SHARED UI COMPONENTS & DESIGN SYSTEM
+   ========================================================================== */
+
+/* Glass Surfaces */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+
+  border-radius: var(--radius-lg);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+  transform: translateY(-4px);
+}
+
+/* Modern Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary-orange {
+  background: var(--color-orange);
+  color: #FFFFFF;
+}
+
+.btn-primary-orange:hover {
+  background: var(--color-orange-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary-blue {
+  background: var(--color-blue);
+  color: #FFFFFF;
+}
+
+.btn-primary-blue:hover {
+  background: var(--color-blue-hover);
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+}
+
+.btn-glass:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1.05rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-orange {
+  background: var(--color-orange-subtle);
+  color: var(--color-orange);
+  border: 1px solid rgba(255, 156, 15, 0.3);
+}
+
+.badge-blue {
+  background: var(--color-blue-subtle);
+  color: var(--color-blue);
+  border: 1px solid rgba(0, 82, 245, 0.3);
+}
+
+.badge-glass {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-medium);
+}
+
+/* Search & Filter Inputs */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--bg-input);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  width: 100%;
+  max-width: 480px;
+  transition: all var(--transition-fast);
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px var(--color-blue-subtle);
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Filter Tabs */
+.filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  width: 100%;
+  max-width: 100%;
+}
+
+.filter-pills::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .filter-pills {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .filter-pills {
+    justify-content: flex-start;
+    padding: 4px 2px 8px;
+    overscroll-behavior-x: contain;
+  }
+}
+
+.filter-pill {
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 700;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: max-content;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.filter-pill:active {
+  transform: scale(0.94);
+}
+
+.filter-pill:hover {
+  border-color: var(--color-orange);
+  color: var(--text-primary);
+}
+
+.filter-pill.active {
+  background: var(--color-orange);
+  color: #FFFFFF;
+  border-color: var(--color-orange);
+  box-shadow: 0 4px 14px rgba(255, 156, 15, 0.35);
+}
+
+/* Tooltips */
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+
+  transition: all var(--transition-fast);
+  z-index: 1000;
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

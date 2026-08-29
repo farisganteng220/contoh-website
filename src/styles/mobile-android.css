@@ -1,0 +1,366 @@
+/* ==========================================================================
+   MOBILE ANDROID 16 QPR2 & GOOGLE PIXEL LAUNCHER
+   ========================================================================== */
+
+.mobile-android-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--bg-main);
+  background-image: var(--wallpaper-overlay);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 90px;
+}
+
+/* Pixel Status Bar */
+.android-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 6px 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  z-index: 100;
+  letter-spacing: 0.02em;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+
+.status-pill-battery {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-medium);
+}
+
+/* Pixel At-A-Glance Widget */
+.pixel-at-a-glance {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.at-a-glance-date {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.at-a-glance-weather {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.weather-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-orange-subtle);
+  color: var(--color-orange);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Android Large Clock Widget */
+.android-clock-hero {
+  padding: 10px 20px 20px 20px;
+  text-align: center;
+}
+
+.android-clock-digits {
+  font-family: var(--font-display);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--color-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.android-creator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Android Google Search Pill */
+.android-search-pill {
+  margin: 10px 20px 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-pill-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.search-pill-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-orange);
+}
+
+/* Android App Grid */
+.android-app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 10px;
+  padding: 0 16px 24px 16px;
+}
+
+.android-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--transition-fast);
+}
+
+.android-app-item:active {
+  transform: scale(0.9);
+}
+
+.android-app-icon-squircle {
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition-spring);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.android-app-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mobile Bottom Floating Dock */
+.android-bottom-dock-container {
+  position: fixed;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+  padding: 6px 12px;
+  pointer-events: none;
+}
+
+.android-bottom-dock {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  max-width: calc(100vw - 20px);
+  background: var(--bg-dock);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1.5px solid var(--border-medium);
+  border-radius: 20px;
+  padding: 7px 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 1px rgba(255, 156, 15, 0.25);
+}
+
+.dock-item-mobile {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform var(--transition-spring), background var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dock-item-mobile:active {
+  transform: scale(0.88);
+}
+
+.dock-item-mobile.active {
+  border-color: var(--color-orange);
+  background: var(--color-orange-subtle);
+  color: var(--color-orange);
+}
+
+/* Android Gesture Pill Navigation */
+.android-gesture-pill {
+  position: fixed;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 36px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-medium);
+  border-radius: 18px;
+  opacity: 0.8;
+  z-index: 1000;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.android-gesture-pill:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* Mobile Standalone Page Header */
+.mobile-page-header {
+  display: grid;
+  grid-template-columns: 38px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 8px 12px;
+  background: var(--bg-surface-elevated);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1.5px solid var(--border-medium);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 38px;
+}
+
+.mobile-header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
+  padding: 0 2px;
+}
+
+.mobile-header-icon {
+  flex-shrink: 0;
+}
+
+.mobile-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 38px;
+}
+
+.mobile-header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mobile-header-btn:active {
+  transform: scale(0.92);
+  background: var(--bg-surface);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.mobile-page-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}

@@ -38,6 +38,10 @@ export const MusicPage = () => {
     setVolume,
     isMuted,
     toggleMute,
+    currentTime,
+    duration,
+    formatTime,
+    isYTReady,
   } = useAudio();
 
   const [isLiked, setIsLiked] = useState(false);
@@ -193,9 +197,9 @@ export const MusicPage = () => {
                   />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: 'var(--text-muted)' }}>
-                  <span>0:00</span>
-                  <span>{currentTrack.duration}</span>
-                </div>
+                   <span>{formatTime(currentTime)}</span>
+                   <span>{duration > 0 ? formatTime(duration) : currentTrack.duration}</span>
+                 </div>
               </div>
 
               {/* Large Round Media Controls */}
@@ -418,13 +422,13 @@ export const MusicPage = () => {
             <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '14px' }}>
               <AudioVisualizer barCount={24} height={32} />
               <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                {isPlaying ? (isMuted ? 'Audio Output Muted' : '44.1kHz WebAudio Active') : 'Player Paused'}
+                {isPlaying ? (isMuted ? 'Audio Output Muted' : (isYTReady ? 'YouTube Audio Streaming' : 'Connecting...')) : 'Player Paused'}
               </span>
             </div>
 
             {/* Progress Slider */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>0:00</span>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontVariantNumeric: 'tabular-nums' }}>{formatTime(currentTime)}</span>
               <div
                 style={{
                   flex: 1,
@@ -446,11 +450,11 @@ export const MusicPage = () => {
                     width: `${progress}%`,
                     height: '100%',
                     background: 'var(--color-orange)',
-                    transition: 'width 0.2s linear',
+                    transition: 'width 0.5s linear',
                   }}
                 />
               </div>
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{currentTrack.duration}</span>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontVariantNumeric: 'tabular-nums' }}>{duration > 0 ? formatTime(duration) : currentTrack.duration}</span>
             </div>
 
             {/* Master Control Buttons */}
@@ -512,7 +516,7 @@ export const MusicPage = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <ListMusic size={20} className="text-orange" />
-              <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Vantara OS Official Soundscapes</h3>
+              <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Rasfalz Studio Playlist</h3>
             </div>
             <span className="badge badge-glass">{playlist.length} Tracks Available</span>
           </div>
